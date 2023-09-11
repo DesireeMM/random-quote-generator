@@ -8,7 +8,13 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ created an array of objects called quotes
+ quote objects have the following properties:
+  -quote (string): quotation
+  -source (string): author
+  -citation (string), optional: cited source
+  -year (number), optional: year attributed to quote
+  -tags (array), optional: descriptive catagorizers for quote
 ***/
 
 const quotes = [
@@ -22,7 +28,8 @@ const quotes = [
   },
   {
     quote: "Love yourself first and everything else falls into place.",
-    source: "Lucille Ball"
+    source: "Lucille Ball",
+    tags: ['inspirational', 'self-love']
   },
   {
     quote: "Do something wonderful, people may imitate it.",
@@ -44,13 +51,28 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 
-
+const getRandomQuote = (arr) => {
+  const randomNumber = Math.floor(Math.random() * arr.length);
+  return arr[randomNumber];
+}
 
 /***
  * `printQuote` function
 ***/
 
-
+const printQuote = () => {
+  const randomQuote = getRandomQuote(quotes);
+  let html = `<p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}`
+  if (randomQuote.citation) {
+    html += `<span class="citation">${randomQuote.citation}</span>`
+  }
+  if (randomQuote.year) {
+    html += `<span class="year">${randomQuote.year}</span>`
+  }
+  html += '</p>'
+  document.getElementById('quote-box').innerHTML = html;
+}
 
 /***
  * click event listener for the print quote button
