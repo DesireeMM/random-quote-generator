@@ -110,6 +110,12 @@ const printQuote = () => {
 }
 
 /***
+ * Display a new quote object every 10 seconds using the setInterval() method
+ */
+
+setInterval(printQuote, 10000)
+
+/***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
