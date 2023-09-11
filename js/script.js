@@ -48,7 +48,10 @@ const quotes = [
 ];
 
 /***
- * `getRandomQuote` function
+ *Returns a random element from an array
+ *
+ * @param {array} arr - the array to select from randomly
+ * @returns {array element} - a randomly selected element from the array
 ***/
 
 const getRandomQuote = (arr) => {
@@ -57,7 +60,33 @@ const getRandomQuote = (arr) => {
 }
 
 /***
- * `printQuote` function
+ * Returns a random number between a given range
+ * 
+ * @param {number} lower - lower limit to the range
+ * @param {number} upper - upper limit to the range
+ * @returns {number} a random number in range lower to upper
+ */
+
+const getRandomNumber = (lower, upper) => {
+  return Math.floor(Math.random() * (upper - lower)) + lower;
+}
+
+/***
+ * Returns a random background color
+ * 
+ * @returns {string} rgb color
+ */
+
+const getRandomColor = () => {
+  const rValue = getRandomNumber(0, 255);
+  const gValue = getRandomNumber(0, 255);
+  const bValue = getRandomNumber(0, 255);
+  return `rgb(${rValue}, ${gValue}, ${bValue})`
+}
+
+/***
+ * Builds an html template string based on a random quote object
+ * Updates html displayed on page
 ***/
 
 const printQuote = () => {
@@ -70,8 +99,14 @@ const printQuote = () => {
   if (randomQuote.year) {
     html += `<span class="year">${randomQuote.year}</span>`
   }
+  if (randomQuote.tags) {
+    for ( let i = 0; i < randomQuote.tags.length; i++ ){
+      html += `<br><span class="tag"><i>${randomQuote.tags[i]}</i></span>`
+    }
+  }
   html += '</p>'
   document.getElementById('quote-box').innerHTML = html;
+  document.body.style.backgroundColor = getRandomColor();
 }
 
 /***
