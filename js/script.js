@@ -11,7 +11,34 @@ project 1 - A Random Quote Generator
  * `quotes` array 
 ***/
 
-
+const quotes = [
+  {
+    quote: "All our dreams can come true if we have the courage to pursue them.",
+    source: "Walt Disney"
+  },
+  {
+    quote: "It always seems impossible until it's done.",
+    source: "Nelson Mandela"
+  },
+  {
+    quote: "Love yourself first and everything else falls into place.",
+    source: "Lucille Ball"
+  },
+  {
+    quote: "Do something wonderful, people may imitate it.",
+    source: "Albert Schweitzer"
+  },
+  {
+    quote: "You must be the change you wish to see in the world.",
+    source: "Mahatma Ghandi"
+  },
+  {
+    quote: "I am not afraid of storms, for I am learning how to sail my ship.",
+    source: "Amy March",
+    citation: '"Little Women" by Louisa May Alcott',
+    year: 1869
+  },
+];
 
 /***
  * `getRandomQuote` function
